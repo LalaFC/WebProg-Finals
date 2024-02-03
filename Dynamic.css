@@ -35,8 +35,14 @@ body {
   margin-right: 20%;
 }
 
-.row {
-  padding-top: 50px;
+.header{
+  padding-left: 16.66%;
+  display: flex;
+}
+.header ul{
+  display: flex;
+  width: 100%;
+  flex-direction: row-reverse;
 }
 
 /* ///////////..utility classes../////////// */
@@ -133,10 +139,10 @@ body {
 .showcase-area {
   height: 50vh;
   background: linear-gradient(
-      rgba(240, 240, 240, 0.144),
-      rgba(255, 255, 255, 0.336)
+      rgba(0, 0, 0, 0.178),
+      rgb(255, 146, 3)
     ),
-    url(img/feather.gif);
+    url(Images/melting-cheese.gif);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
