@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebProg Act2</title>
+    <title>Papsie Burger</title>
+    <link rel="icon" href = "Images/Papsie-logo.png">
     <link rel="stylesheet"
           href="Dynamic.css" />
     <link rel="stylesheet" href="style.css" />
@@ -24,6 +25,7 @@
             </div>
 
             <ul class="menu-items">
+                <div class="logo"><img src="Images/Papsie.png"></div>
                 <div id="burger">
                     <div id="top-bun"></div>
                 <li><a href="#" id="home" >
@@ -40,7 +42,7 @@
                 <div id="bottom-bun"></div>
                 </div>
             </ul>
-            <div class="logo"><img src="Images/Papsie.png"></div>
+            
         </div>
     </nav>
     <!--#endregion -->
@@ -87,13 +89,16 @@
     <!-- #region main-content -->    
     <div class="header">
         <ul class="Register/Login">
-            <li><a href="#" id="register" target="_blank">
-                <div id="tomato"><h4>Register</h4></div>
-            </a></li>
-            <div><h4>/</h4></div>
+            <li><a href="#" id="cart"><div class="icon-holder" ><img src="Images/cart.ico" loading="lazy" alt="" class="image"></div></a></li>
             <li><a href="#" id="Login" target="_blank">
                 <div id="tomato"><h4>Login</h4></div>
             </a></li>
+            <h4>/</h4>
+            <li><a href="#" id="register" target="_blank">
+                <div id="tomato"><h4>Register</h4></div>
+            </a></li>
+
+
     </div>
     <div class="col-10"
              id="main-content">
@@ -101,44 +106,46 @@
             <section class="showcase-area" id="showcase">
                 <div class="showcase-container">
                     <h1 class="main-title" id="home">Feel at Home with Papsie Burger</h1>
-                    <p>Experience the taste of Home without piercing your pockets!</p>
-                    <a href="#menu" class="btn btn-primary">Menu</a>
+                    <p style="padding-bottom: 20%;">Experience the taste of Home without piercing your pockets!</p>
+                    
+                    <div class="food-menu-container container" style="background-color: rgba(250, 235, 215, 0.582); padding: 10px; border-radius: 5%;">
+                        <h1 class="main-title" id="home" style="width: 100%; text-align: center; padding-bottom: 20px;">PapSulit Meals:</h1>
+                        <div class="food-menu-item">
+                            <div class="food-img">
+                                <img src="Images/burger.jpg"
+                                    alt="burger" />
+                            </div>
+                            <div class="food-description">
+                                <h2 class="food-titile">Original Burger</h2>
+                                <p class="food-price">Price: 15 PHP</p>
+                            </div>
+                            <div class="food-img">
+                                <img src="Images/hotdog.jpg"
+                                    alt="half-long" />
+                            </div>
+                            <div class="food-description">
+                                <h2 class="food-titile">Half-long</h2>
+                                <p class="food-price">Price: 15 PHP</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" id="menu-btn" class="btn btn-primary">Order Now</a>
                 </div>
             </section>
-                            <section id="about">
-                <div class="about-wrapper container">
-                    <div class="about-text">
-                        <p class="small">About Me</p>
-                        <h2>One of the Founding Members of A2 PsycheWard(Since 2022).</h2>
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse ab
-                            eos omnis, nobis dignissimos perferendis et officia architecto,
-                            fugiat possimus eaque qui ullam excepturi suscipit aliquid optio,
-                            maiores praesentium soluta alias asperiores saepe commodi
-                            consequatur? Perferendis est placeat facere aspernatur!
-                        </p>
-                    </div>
-                    <div class="about-img">
-                        <img src="img/feather.png" alt="feather" />
-                    </div>
-                </div>
-            </section>
-
+            
             <section id="about">
                 <div class="about-wrapper container">
                     <div class="about-text">
-                        <p class="small">About Me</p>
-                        <h2>One of the Founding Members of A2 PsycheWard(Since 2022).</h2>
+                        <p class="small">About Us</p>
+                        <h2>“Masarap na hindi nakakabutas bulsa”</h2>
                         <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse ab
-                            eos omnis, nobis dignissimos perferendis et officia architecto,
-                            fugiat possimus eaque qui ullam excepturi suscipit aliquid optio,
-                            maiores praesentium soluta alias asperiores saepe commodi
-                            consequatur? Perferendis est placeat facere aspernatur!
+                            A popular snack shop located in Taytay, Rizal known for its delicious snacks with affordable prices.
+                            It’s my uncle’s shop and I want to make a sample site if ever they would want to expand their business in e-commerce.
+
                         </p>
                     </div>
                     <div class="about-img">
-                        <img src="img/feather.png" alt="feather" />
+                        <img src="Images/area-pic.jpg" alt="Taytay,Rizal" />
                     </div>
                 </div>
             </section>
@@ -146,37 +153,37 @@
             <section id="menu">
                 <h1>Menu</h1>
                 <h2>Categories</h2>
-                <div class="food-container container">
+                <div class="food-menu-container container">
                     <div class="food-type fruite">
                         <div class="img-container">
-                            <img src="img/sci-fi.jpg" alt="Sci-Fi" />
+                            <img src="Images/burger.jpg" alt="Burgers" />
                             <div class="img-content">
-                                <h3>Sci-Fi</h3>
+                                <h3>Burgers</h3>
                                 <a href="https://ai-forum.com/"
                                    class="btn btn-primary"
-                                   target="blank">learn more</a>
+                                   target="blank">Let's Go</a>
                             </div>
                         </div>
                     </div>
                     <div class="food-type vegetable">
                         <div class="img-container">
-                            <img src="img/nature.jpg" alt="Nature" />
+                            <img src="Images/hotdog.jpg" alt="Hotdogs" />
                             <div class="img-content">
-                                <h3>Nature</h3>
+                                <h3>Hotdogs</h3>
                                 <a href="https://www.nationalgeographic.com/expeditions/interests/nature-wildlife/"
                                    class="btn btn-primary"
-                                   target="blank">learn more</a>
+                                   target="blank">Let's Go</a>
                             </div>
                         </div>
                     </div>
                     <div class="food-type grin">
                         <div class="img-container">
-                            <img src="img/galaxy.jpg" alt="Galaxy" />
+                            <img src="Images/French-fries.jpg" alt="Fries" />
                             <div class="img-content">
-                                <h3>Galaxy</h3>
+                                <h3>Snacks</h3>
                                 <a href="https://en.wikipedia.org/wiki/Grain"
                                    class="btn btn-primary"
-                                   target="blank">learn more</a>
+                                   target="blank">Let's Go</a>
                             </div>
                         </div>
                     </div>
@@ -344,14 +351,13 @@
 
     <!--#region footer-->
     <footer id="footer">
-        <h2>AGL &copy; all rights reserved</h2>
+        <h2>PapsieBurger &copy; all rights reserved</h2>
     </footer>
     <!--#endregion -->
 
 </body>
 <!--#region JS Code-->
-<!--
-  .................../ JS Code for smooth scrolling /...................... -->
+<!-- .................../ JS Code for smooth scrolling /...................... -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>

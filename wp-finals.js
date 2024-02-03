@@ -30,28 +30,55 @@ $(document).ready(function(){
         if (e != 0)
             $(this).hide();
     });
+
+    $("#home").click(function(){
+        $(".col-10 section:visible").fadeOut(function(){
+            $(".col-10 #showcase").fadeIn();
+        });
+        return false;
+    });
     $("#aboutme").click(function(){
-        if ($(".col-10 section:visible").next().length != 0)
-            $(".col-10 section:visible").fadeOut(function(){
-                $(this).next().fadeIn();
-            });
-        else {
-            $(".col-10 section:visible").fadeOut(function(){
-                $(".col-10 section:first").fadeIn();
-            });
-        }
+        $(".col-10 section:visible").fadeOut(function(){
+            $(".col-10 #about").fadeIn();
+        });
         return false;
     });
     $("#product-menu").click(function(){
-        if ($(".col-10 section:visible").prev().length != 0)
-            $(".col-10 section:visible").fadeOut(function(){
-                $(this).prev().fadeIn();
-            });
-        else {
-            $(".col-10 section:visible").fadeOut(function(){
-                $(".col-10 section:last").fadeIn();
-            });
-        }
+        $(".col-10 section:visible").fadeOut(function(){
+            $(".col-10 #menu").fadeIn();
+        });
         return false;
     });
+    $("#menu-btn").click(function(){
+        $(".col-10 section:visible").fadeOut(function(){
+            $(".col-10 #menu").fadeIn();
+        });
+        return false;
+    });
+
+
+    // $("#aboutme").click(function(){
+    //     if ($(".col-10 section:visible").next().length != 0)
+    //         $(".col-10 section:visible").fadeOut(function(){
+    //             $(this).next().fadeIn();
+    //         });
+    //     else {
+    //         $(".col-10 section:visible").fadeOut(function(){
+    //             $(".col-10 section:first").fadeIn();
+    //         });
+    //     }
+    //     return false;
+    // });
+    // $("#product-menu").click(function(){
+    //     if ($(".col-10 section:visible").prev().length != 0)
+    //         $(".col-10 section:visible").fadeOut(function(){
+    //             $(this).prev().fadeIn();
+    //         });
+    //     else {
+    //         $(".col-10 section:visible").fadeOut(function(){
+    //             $(".col-10 section:last").fadeIn();
+    //         });
+    //     }
+    //     return false;
+    // });
 });
