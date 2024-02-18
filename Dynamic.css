@@ -119,6 +119,7 @@ body {
   list-style: none;
   font-size: 1.2rem;
   padding: 5%;
+  margin: 0 !important;
 }
 
 .menu-items a {
@@ -422,6 +423,8 @@ body {
 /* ......../ footer /.......... */
 #footer {
   box-shadow: 0px -5px 10px 0px #aaa;
+  position: sticky;
+  bottom: 0;
   width: 100%;
   height: 10%;
   z-index: 14;
@@ -452,6 +455,7 @@ body {
   .navbar-container {
     flex-direction: row;
     width: 100%;
+    height: 100%;
   }
   .menu-items {
     flex-direction: row;
@@ -522,19 +526,18 @@ body {
   .navbar .menu-items {
     padding-top: 100px;
     background: #000000;
-    height: 100vh;
     max-width: 300px;
     transform: translate(-150%);
     display: flex;
     flex-direction: column;
-    margin-left: -40px;
     padding-left: 50px;
     transition: transform 0.5s ease-in-out;
     box-shadow: 5px 0px 10px 0px #aaa;
+    height: fit-content;
   }
 
   .navbar .menu-items li {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     font-size: 1.3rem;
     font-weight: 500;
   }
@@ -924,6 +927,11 @@ img {
   background-color: #F13233;
   border-bottom: 5px solid #940C0E;
   }
+  #burger #lettuce {
+    border-radius: 20px;
+    background-color: #80D041;
+    border-bottom: 3px solid #0F6D12;
+  }
   #burger #cheese {
   background-color: #E8EA02;
   border-radius: 20px;
@@ -940,3 +948,144 @@ img {
   height: 60px;
   border-bottom: 11px solid #724D12;
   }
+
+  /* LoginForm */
+
+          .modal {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(39, 39, 39, 0.753);
+            transition: all 0.4s;
+            visibility: hidden;
+            opacity: 0;
+        }
+ 
+        .content {
+            position: absolute;
+            background: white;
+            width: 400px;
+            padding: 1em 2em;
+            border-radius: 4px;
+        }
+ 
+        .modal:target {
+            visibility: visible;
+            opacity: 1;
+        }
+ 
+        .box-close {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            color: #fe0606;
+            text-decoration: none;
+            font-size: 30px;
+        }
+#registerPage, #loginPage{
+  h3
+  {
+    text-align: center;
+  }
+  table
+  {
+    text-align: center;
+    border: 0.5px;
+    border-color: #000;
+  }
+  /* Style all input fields */
+  input [type = text]
+      {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+      }
+  input [type = password]
+      {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+      }
+
+  /* Style the submit button */
+  input[type=button] 
+      {
+        width: 30%;
+        background-color:brown;
+        color: white;
+        font-size: 9px;
+        border: none;
+      }
+
+  /* Style the container for inputs */
+  .container 
+      {
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+        background-color:bisque;
+        padding: 20px;
+        font-size: 20px;
+      }
+
+  /* The message box is shown when the user clicks on the password field */
+  #message, #uMessage 
+      {
+        display:none;
+        background: #f1f1f1;
+        color: #000;
+        position: relative;
+        padding: 20px;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 17em;
+      }
+
+  #message p , #uMessage p
+      {
+        padding: 5px 20px;
+        font-size: 14px;
+      }
+
+  /* Add a green text color and a checkmark when the requirements are right */
+  .valid 
+      {
+        color: green;
+      }
+
+  .valid:before 
+      {
+        position: relative;
+        left: -35px;
+        content: "✔";
+      }
+
+  /* Add a red text color and an "x" when the requirements are wrong */
+  .invalid 
+      {
+        color: red;
+      }
+
+  .invalid:before {
+    position: relative;
+    left: -35px;
+    content: "✖";
+  }
+  p[id= userlist]
+  {
+    text-align: center;
+  }
+}

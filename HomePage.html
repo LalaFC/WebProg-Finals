@@ -31,6 +31,9 @@
                 <li><a href="#" id="home" >
                     <div id="tomato"><h4 style="color: white;">Home</h4></div>
                 </a></li>
+                <li><a href="#" id="contactus">                
+                    <div id="lettuce"><h4>Contact Us</h4></div>
+                </a></li>
                 <li><a href="#" id="aboutme">                
                     <div id="cheese"><h4>About</h4></div>
                 </a></li>
@@ -90,13 +93,99 @@
     <div class="header">
         <ul class="Register/Login">
             <li><a href="#" id="cart"><div class="icon-holder" ><img src="Images/cart.ico" loading="lazy" alt="" class="image"></div></a></li>
-            <li><a href="#" id="Login" target="_blank">
+            <li><a href="#loginPage" id="Login">
                 <div id="tomato"><h4>Login</h4></div>
-            </a></li>
+                </a>
+                <div id="loginPage" class="modal">
+                    <div class="content">
+                        <h3>Login Form</h3>
+                        <form action="/action_page.php">
+                  
+                          <table>
+                              <tr>
+                                  <td>
+                                      <b><label for="username">Username:</label></b>
+                                  </td>
+                                  <td>
+                                      <input type="text" id="username2" name="username" pattern="(_).{6,}" title = "Must have atleast 6 or more characters and without special charaters except underscore" required>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <b><label for="psw">Password:</label></b>
+                                  </td>
+                                  <td>
+                                      <input type="password" id="psw2" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                              </tr>
+                              <tr>
+                                  <td>
+                                  </td>
+                                  <td>
+                                      <input type="button" id = "validateButton" value = "Login">
+                                  </td>
+                              </tr>
+                          </table>
+                          <a href="#" class="box-close">
+                            ×
+                        </a>
+                        </form>
+                    </div>
+                </div>
+            </li>
             <h4>/</h4>
-            <li><a href="#" id="register" target="_blank">
-                <div id="tomato"><h4>Register</h4></div>
-            </a></li>
+            <li><a href="#registerPage" id="register">
+                    <div id="tomato"><h4>Register</h4></div>
+                </a>
+                <div id="registerPage" class="modal">
+                    <div class="content">
+                        <h3>Register Form</h3>
+                        <form action="/action_page.php">
+                  
+                          <table>
+                              <tr>
+                                  <td>
+                                      <b><label for="username">Username:</label></b>
+                                  </td>
+                                  <td>
+                                      <input type="text" id="username" name="username" pattern="(_).{6,}" title = "Must have atleast 6 or more characters and without special charaters except underscore" required>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <b><label for="psw">Password:</label></b>
+                                  </td>
+                                  <td>
+                                      <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                              </tr>
+                              <tr>
+                                  <td>
+                                  </td>
+                                  <td>
+                                    <input type="button" id = "addButton"      value = "Sign Up">
+                                    <input type="button" id = "clearButton"    value = "CLEAR">                                  </td>
+                              </tr>
+                          </table>
+                          <a href="#" class="box-close">
+                            ×
+                        </a>
+                        </form>
+                        <div id="message">
+                            <h3>Password must contain the following:</h3>
+                            <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                            <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                            <p id="number" class="invalid">A <b>number</b></p>
+                            <p id="special" class="invalid">A <b>special character</b></p>
+                            <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                          </div>
+                      
+                        <div id="uMessage">
+                            <h3>Username must contain the following:</h3>
+                            <p id="uLength" class="invalid">Minimum <b>6 characters</b></p>
+                            <p id="noSpecial" class="invalid"><b>No special character</b> except <b>underscore</b>.</p>
+                        </div>
+                    </div>
+                </div>
+        </li>
 
 
     </div>
@@ -159,9 +248,9 @@
                             <img src="Images/burger.jpg" alt="Burgers" />
                             <div class="img-content">
                                 <h3>Burgers</h3>
-                                <a href="https://ai-forum.com/"
+                                <a href="#"
                                    class="btn btn-primary"
-                                   target="blank">Let's Go</a>
+                                   id = "burgers-list">Let's Go</a>
                             </div>
                         </div>
                     </div>
@@ -170,9 +259,9 @@
                             <img src="Images/hotdog.jpg" alt="Hotdogs" />
                             <div class="img-content">
                                 <h3>Hotdogs</h3>
-                                <a href="https://www.nationalgeographic.com/expeditions/interests/nature-wildlife/"
+                                <a href="#"
                                    class="btn btn-primary"
-                                   target="blank">Let's Go</a>
+                                   id ="hotdogs-list">Let's Go</a>
                             </div>
                         </div>
                     </div>
@@ -181,9 +270,9 @@
                             <img src="Images/French-fries.jpg" alt="Fries" />
                             <div class="img-content">
                                 <h3>Snacks</h3>
-                                <a href="https://en.wikipedia.org/wiki/Grain"
+                                <a href="#"
                                    class="btn btn-primary"
-                                   target="blank">Let's Go</a>
+                                   id = "snacks-list">Let's Go</a>
                             </div>
                         </div>
                     </div>
@@ -191,8 +280,8 @@
             </section>
 
         <!-- #region Food Menu -->
-            <section id="food-menu">
-                <h2 class="food-menu-heading">Favorite Foods</h2>
+            <section id="food-menu-burgers">
+                <h2 class="food-menu-heading">Burgers</h2>
                 <div class="food-menu-container container">
                     <div class="food-menu-item">
                         <div class="food-img">
@@ -235,45 +324,117 @@
                             <p class="food-price">Price: &#8377; 250</p>
                         </div>
                     </div>
-                    <!-- <div class="food-menu-item">
+                </div>
+            </section>
+
+            <section id="food-menu-hotdogs">
+                <h2 class="food-menu-heading">Hotdogs</h2>
+                <div class="food-menu-container container">
+                    <div class="food-menu-item">
                         <div class="food-img">
-                            <img src="https://i.postimg.cc/Yq98p5Z7/food-menu4.jpg" alt="" />
+                            <img src="img/chicken.jpg" alt="Fried Chicken" />
                         </div>
                         <div class="food-description">
-                            <h2 class="food-titile">Food Menu Item 4</h2>
+                            <h2 class="food-titile">Fried Chicken</h2>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
                                 quae.
                             </p>
                             <p class="food-price">Price: &#8377; 250</p>
                         </div>
-                    </div> -->
-                    <!-- <div class="food-menu-item">
+                    </div>
+
+                    <div class="food-menu-item">
                         <div class="food-img">
-                            <img src="https://i.postimg.cc/KYnDqxkP/food-menu5.jpg" alt="" />
+                            <img src="img/sisig.jpg"
+                                    alt="sisig" />
                         </div>
                         <div class="food-description">
-                            <h2 class="food-titile">Food Menu Item 5</h2>
+                            <h2 class="food-titile">Sisig</h2>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
                                 quae.
                             </p>
                             <p class="food-price">Price: &#8377; 250</p>
                         </div>
-                    </div> -->
-                    <!-- <div class="food-menu-item">
+                    </div>
+                    <div class="food-menu-item">
                         <div class="food-img">
-                            <img src="https://i.postimg.cc/Jnxc8xQt/food-menu6.jpg" alt="" />
+                            <img src="img/pasta.jpg" alt="" />
                         </div>
                         <div class="food-description">
-                            <h2 class="food-titile">Food Menu Item 6</h2>
+                            <h2 class="food-titile">Pasta</h2>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
                                 quae.
                             </p>
                             <p class="food-price">Price: &#8377; 250</p>
                         </div>
-                    </div> -->
+                    </div>
+                </div>
+            </section>
+
+            <section id="food-menu-snacks">
+                <h2 class="food-menu-heading">Snacks</h2>
+                <div class="food-menu-container container">
+                    <div class="food-menu-item">
+                        <div class="food-img">
+                            <img src="img/chicken.jpg" alt="Fried Chicken" />
+                        </div>
+                        <div class="food-description">
+                            <h2 class="food-titile">Fried Chicken</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
+                                quae.
+                            </p>
+                            <p class="food-price">Price: &#8377; 250</p>
+                        </div>
+                    </div>
+
+                    <div class="food-menu-item">
+                        <div class="food-img">
+                            <img src="img/sisig.jpg"
+                                    alt="sisig" />
+                        </div>
+                        <div class="food-description">
+                            <h2 class="food-titile">Sisig</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
+                                quae.
+                            </p>
+                            <p class="food-price">Price: &#8377; 250</p>
+                        </div>
+                    </div>
+                    <div class="food-menu-item">
+                        <div class="food-img">
+                            <img src="img/pasta.jpg" alt="" />
+                        </div>
+                        <div class="food-description">
+                            <h2 class="food-titile">Pasta</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
+                                quae.
+                            </p>
+                            <p class="food-price">Price: &#8377; 250</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contactusPage">
+                <div class="contactus container">
+                    <div class="contacts-text">
+                        <p class="small">Contact Us</p>
+                        <h2>“Masarap na hindi nakakabutas bulsa”</h2>
+                        <p>
+                            A popular snack shop located in Taytay, Rizal known for its delicious snacks with affordable prices.
+                            It’s my uncle’s shop and I want to make a sample site if ever they would want to expand their business in e-commerce.
+
+                        </p>
+                    </div>
+                    <div class="about-img">
+                        <img src="Images/area-pic.jpg" alt="Taytay,Rizal" />
+                    </div>
                 </div>
             </section>
         <!-- #endregion Food Menu -->
