@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    
     <!--#region Navigation Bar  -->
     <nav class="navbar">
         <div class="navbar-container container">
@@ -199,7 +200,7 @@
                     
                     <div class="food-menu-container container" style="background-color: rgba(250, 235, 215, 0.582); padding: 10px; border-radius: 5%;">
                         <h1 class="main-title" id="home" style="width: 100%; text-align: center; padding-bottom: 20px;">PapSulit Meals:</h1>
-                        <div class="food-menu-item">
+                        <div class="food-menu-item" style="background-color:rgba(255, 255, 255, 0);">
                             <div class="food-img">
                                 <img src="Images/burger.jpg"
                                     alt="burger" />
@@ -283,6 +284,38 @@
             <section id="food-menu-burgers">
                 <h2 class="food-menu-heading">Burgers</h2>
                 <div class="food-menu-container container">
+
+                    <?php
+                        // database connection code
+                        $con = mysqli_connect('localhost', 'root', '', 'papsie_burger');
+
+                        // database insert SQL code
+                        $sql = "SELECT * FROM Product_List WHERE Product_Type = 'Burger'";
+                        $result = $con->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            // output data of each row
+                            while ($row = $result->fetch_assoc()) {
+                                echo
+                                '<div class="food-menu-item"> 
+                                    <div class="food-img"> 
+                                        <img src=" $row["Image"]  " alt=" $row["Image"] " /> 
+                                    </div>
+                                    <div class="food-description">
+                                        <h2 class="food-title">' . $row["Product_Name"] . '</h2>
+                                        <p>' .
+                                            $row["Description"] .
+                                        '</p>
+                                        <p class="food-price">Price: PHP ' . $row["Price"] . '</p>
+                                    </div>
+                                </div>';
+                            }
+                        } else {
+                            echo "0 results";
+                        }
+                        $con->close();
+                    ?>
+
                     <div class="food-menu-item">
                         <div class="food-img">
                             <img src="img/chicken.jpg" alt="Fried Chicken" />
@@ -422,15 +455,17 @@
             </section>
 
             <section id="contactusPage">
-                <div class="contactus container">
+                <div class="contactus container" style="background: rgba(216, 216, 216, 0.801);">
                     <div class="contacts-text">
-                        <p class="small">Contact Us</p>
-                        <h2>“Masarap na hindi nakakabutas bulsa”</h2>
+                        <h2>Contact Us</h2>
                         <p>
-                            A popular snack shop located in Taytay, Rizal known for its delicious snacks with affordable prices.
-                            It’s my uncle’s shop and I want to make a sample site if ever they would want to expand their business in e-commerce.
-
+                            Email:
+                            Twitter:
+                            Facebook:
+                            Instagram:
                         </p>
+                        <h2>Physical Location</h2>
+                        <p>Taytay, Rizal</p>
                     </div>
                     <div class="about-img">
                         <img src="Images/area-pic.jpg" alt="Taytay,Rizal" />
