@@ -235,7 +235,7 @@
                 <i class="fas fa-search"></i> -->
 
                 <input type="text" id="searchInput" placeholder="Search...">
-                <button onclick="showHideSections()">Search</button>
+                <button id="searchBtn">Search</button>
             </div>
 
             <section class="showcase-area" id="showcase">

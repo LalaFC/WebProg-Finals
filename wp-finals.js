@@ -86,6 +86,13 @@ $(document).ready(function(){
         });
         return false;
     });
+    $("#searchBtn").click(function(){
+        $(".col-10 section:visible").fadeOut(function(){
+            $(".col-10 #food-menu-search").fadeIn();
+        });
+        return false;
+    });
+    
 
     // $("#searchButton").on("click", function() {
     //     var query = $("#searchInput").val();
@@ -145,23 +152,6 @@ $(document).ready(function(){
 //     xhr.send();
 // }
 
-
-
-//function to Show or hide
-
-function showHideSections() {
-    $(".col-10 section").each(function(e) {
-        if (e != 0)
-            $(this).hide();
-    });
-
-    // Show the desired section
-    $(document).ready(function() {
-        $(".col-10 section:visible").fadeOut(function() {
-            $(".col-10 #food-menu-search").fadeIn();
-        });
-    });
-}
 
 function search() {
     var query = document.getElementById('searchInput').value;
