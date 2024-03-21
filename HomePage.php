@@ -99,7 +99,7 @@
 
     <div class="header">
         <ul class="Register/Login">
-            <li><a href="#" id="cart"><div class="icon-holder" ><img src="Images/cart.ico" loading="lazy" alt="" class="image"></div></a></li>
+            <!-- <li><a href="#" id="cart"><div class="icon-holder" ><img src="Images/cart.ico" loading="lazy" alt="" class="image"></div></a></li> -->
             <li><a href="#loginPage" id="Login">
                 <div id="tomato"><h4>Login</h4></div>
                 </a>
@@ -436,7 +436,7 @@
 
             <section id="food-menu-search">
                 <h2 class="food-menu-heading">Search</h2>
-                <div class="food-menu-container container">
+                <div class="food-menu-container container" id="searchResults">
                     <?php
             // database connection code
                         $con = mysqli_connect('localhost', 'root', '', 'papsie_burger');

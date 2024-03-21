@@ -33,7 +33,8 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // Email already exists
-    header("Location: Location: HomePage.php#registerPage?error=email_exists");
+    echo '<script>alert("Email Already Exist");</script>';
+    echo '<script>window.location.href = "HomePage.php#registerPage?error=email_exists";</script>';
     exit();
 } else {
     // Email doesn't exist, insert into database
@@ -41,11 +42,12 @@ if ($result->num_rows > 0) {
     VALUES ('$fname', '$lname', '$password', '$email', '$phoneNum', '$address')";
 
     if ($conn->query($sql) === TRUE) {
-        header("Location: HomePage.php#registerPage?registration_success=true");
+        echo '<script>alert("Registration Successful! Please Login to Continue");</script>';
+        echo '<script>window.location.href = "HomePage.php#loginPage";</script>';
         exit();
     } else {
-        header("Location: HomePage.php#registerPage?error=registration_failed");
-        exit();
+        echo '<script>alert("Registration Failed. Please Try Again.");</script>';
+        echo '<script>window.location.href = "HomePage.php#registerPage";</script>';        exit();
     }
 }
 

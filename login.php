@@ -36,7 +36,11 @@ if ($result->num_rows > 0) {
     // User exists, create session
     $row = $result->fetch_assoc();
     // Store username in session
+    $_SESSION['userID'] = $row['User_ID'];
     $_SESSION['name'] = $row['First_Name'];
+    $_SESSION['lname'] = $row['Last_Name'];
+    $_SESSION['address'] = $row['Address'];
+    $_SESSION['contacts'] = $row['Contact_Number'];
     $_SESSION['email'] = $email;
     header("Location: LoggedHomePage.php"); // Redirect to welcome page
 } else {

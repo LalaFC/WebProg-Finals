@@ -98,114 +98,79 @@
 
     <div class="header">
         <ul class="Register/Login">
+            <li><a href="#" id="cart"><div class="icon-holder" ><img src="Images/cart.ico" loading="lazy" alt="" class="image">
+                </div></a>
+            
+                <div id="tomato"><h4>Logout</h4></div>
 
-            <li>
-                <a href="#cartPopup" id="cart">
-                    <div class="icon-holder" ><img src="Images/cart.ico" loading="lazy" alt="" class="image">
-                    </div>
-                </a>
-        
-                <div id="cartPopup" class="modal" >
-                    <div class="content" style="width:80%">
-
-                    <?php
-                        // database connection code
-
-                        $userID = $_SESSION['userID'];
-
-                            $con = mysqli_connect('localhost', 'root', '', 'papsie_burger');
-
-                            // database insert SQL code
-                            $sql = "SELECT * FROM cart_List 
-                                    RIGHT JOIN product_list ON cart_List.product_id = product_list.product_id
-                                    WHERE User_ID = $userID";
-                            $result = $con->query($sql);
-
-                            if ($result->num_rows > 0) {
-                                $Total = 0;
-                                echo                                    '<h1>Shopping Cart</h1>
-                                <a href="#" class="box-close"> × </a>
-                                <div class="shopping-cart">
-                                
-                                <div class="column-labels">
-                                    <label class="product-image">Image</label>
-                                    <label class="product-details">Product</label>
-                                    <label class="product-price">Price</label>
-                                    <label class="product-quantity">Quantity</label>
-                                    <label class="product-removal">Remove</label>
-                                    <label class="product-line-price">Total</label>
-                                </div>';
-                                
-                                // output data of each row
-                                while ($row = $result->fetch_assoc()) {
-                                    $itemTotal = floatval($row["Price"]) * floatval($row["Number"]);
-                                    $Total = $Total + $itemTotal;
-                                    echo
-                                        '<div class="product">
-                                        <div class="product-image">'.
-                                        '<img src="Images/' . $row["Image"] . '" alt="' . $row["Image"] . '" />' .
-                                        '</div>
-                                    <div class="product-details">
-                                        <div class="product-title">'. $row["Product_Name"] .'</div>
-                                        <p class="product-description">'.
-                                        $row["Description"].'</p>
-                                    </div>
-                                    <div class="product-price">'. $row["Price"] .'</div>
-                                    <div class="product-quantity">'.
-                                        '<input type="number" value="'.$row["Number"].'" min="1">
-                                    </div>
-                                    <div class="product-removal">
-                                            <button class="remove-product">
-                                                Remove
-                                            </button>
-                                    </div>
-                                    <div class="product-line-price">'.$itemTotal.'</div>
-                                    </div>
-                                    ';
-                                }
-
-                                echo              
-                                '<div class="totals">
-                                    <div class="totals-item totals-item-total">
-                                        <label>Grand Total</label>
-                                        <div class="totals-value" id="cart-total">'.$Total.'</div>
-                                    </div>
-
-                                    <form action="CheckOut.php" method="post">'.
-                                        '<input type="hidden" name="userID" value="' . $_SESSION['userID'] . '">'.
-                                        '<button class="checkout">Checkout</button>
-                                    </form>
-                                </div></div>';
-
-                            } else {
-                                echo        
-                                '<h1>Shopping Cart</h1>
-                                <a href="#" class="box-close"> × </a>
-                                <div class="shopping-cart">
-                                
-                                <div class="column-labels">
-                                    <label class="product-image">Image</label>
-                                    <label class="product-details">Product</label>
-                                    <label class="product-price">Price</label>
-                                    <label class="product-quantity">Quantity</label>
-                                    <label class="product-removal">Remove</label>
-                                    <label class="product-line-price">Total</label>
-                                </div>
-                                <div class="product-title">Cart is Empty</div>';
-                            }
-                            $con->close();
-                        ?>
-
+                    <div id="cartPopup" class="cart-popup">
+                        <div class="cart-content">
+                            <span class="close" onclick="toggleCart()">&times;</span>
+                            <h2>Your Cart</h2>
+                            <?php include 'cart.php'; ?>
                     </div>
                 </div>
             </li>
 
-            <li>
-                <a href="logout.php" id="Logout">
+            <li><a href="logout.php" id="Logout">
                 <div id="tomato"><h4>Logout</h4></div>
                 </a>
-            </li>
 
+                <div id="loginPage" class="modal">
+                    <div class="content">
+
+                    <!-- <h2>Login</h2>
+                        <form action="login.php" method="post">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required><br><br>
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" required><br><br>
+                            <button type="submit">Login</button>
+                        </form> -->
+
+                        <div class="wrapper">
+                            <div class="title">
+                                Login Form
+                                <a href="#" class="box-close"> × </a>
+                            </div>
+                            <form action="login.php" method="post">
+                                <div class="field">
+                                    <input type="text" name="email" type ="email" required>
+                                    <label>Email Address</label>
+                                </div>
+
+                                <div class="field">
+                                    <input type="password" name="password" required="password">
+                                    <label>Password</label>
+                                </div>
+
+                                <div class="content1">
+                                    <!-- <div class="checkbox">
+                                        <input type="checkbox" id="remember-me">
+                                        <label for="remember-me">Remember me</label>
+                                    </div> -->
+                                    
+                                    <!-- <div class="pass-link">
+                                        <a href="#">Forgot password?</a>
+                                    </div> -->
+                                </div>
+                        
+                                <div class="field">
+                                    <input type="submit" name = "sub" value="Login">
+                                </div>
+                                
+                                <div class="signup-link">
+                                    Not a member? <a href="#registerPage"> &emsp; Signup now</a>
+                                </div>
+                                
+                            </form>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </li>
             <!-- <h4>/</h4> -->
 
 
@@ -367,7 +332,6 @@
                             // output data of each row
                             while ($row = $result->fetch_assoc()) {
                                 echo
-                                '<form action="AddCart.php" method="post">'.
                                 '<div class="food-menu-item">' .
                                     '<div class="food-img">' .
                                         '<img src="Images/' . $row["Image"] . '" alt="' . $row["Image"] . '" />' .
@@ -378,14 +342,8 @@
                                             $row["Description"] .
                                         '</p>' .
                                         '<p class="food-price">Price: PHP ' . $row["Price"] . '</p>' .
-                                        '<label for="quantity">Quantity:</label>'.
-                                        '<input type="number" id="quantity" name="quantity" min="1" max="100" step="1">'.
-                                        '<input type="hidden" name="productID" value="' . $row["Product_ID"] . '">'.
-                                        '<input type="hidden" name="userID" value="' . $_SESSION['userID'] . '">'.
-                                        '<button type="submit">Add to Cart</button>'.
                                     '</div>' .
-                                '</div>'.
-                                '</form>';
+                                '</div>';
                             }
                         } else {
                             echo "0 results";
@@ -410,7 +368,6 @@
                             // output data of each row
                             while ($row = $result->fetch_assoc()) {
                                 echo
-                                '<form action="AddCart.php" method="post">'.
                                 '<div class="food-menu-item">' .
                                     '<div class="food-img">' .
                                         '<img src="Images/' . $row["Image"] . '" alt="' . $row["Image"] . '" />' .
@@ -420,15 +377,9 @@
                                         '<p>' .
                                             $row["Description"] .
                                         '</p>' .
-                                        '<p class="food-price">Price: PHP ' . $row["Price"] . '</p>'.
-                                        '<label for="quantity">Quantity:</label>'.
-                                        '<input type="number" id="quantity" name="quantity" min="1" max="100" step="1">'.
-                                        '<input type="hidden" name="productID" value="' . $row["Product_ID"] . '">'.
-                                        '<input type="hidden" name="userID" value="' . $_SESSION['userID'] . '">'.
-                                        '<button type="submit">Add to Cart</button>'.
+                                        '<p class="food-price">Price: PHP ' . $row["Price"] . '</p>' .
                                     '</div>' .
-                                    '</div>'.
-                                    '</form>';
+                                '</div>';
                             }
                         } else {
                             echo "0 results";
@@ -453,7 +404,6 @@
                 // output data of each row
                 while ($row = $result->fetch_assoc()) {
                     echo
-                    '<form action="AddCart.php" method="post">'.
                     '<div class="food-menu-item">' .
                         '<div class="food-img">' .
                             '<img src="Images/' . $row["Image"] . '" alt="' . $row["Image"] . '" />' .
@@ -464,29 +414,14 @@
                                 $row["Description"] .
                             '</p>' .
                             '<p class="food-price">Price: PHP ' . $row["Price"] . '</p>' .
-                        
-                            '<label for="quantity">Quantity:</label>'.
-                            '<input type="number" id="quantity" name="quantity" min="1" max="100" step="1">'.
-                            '<input type="hidden" name="productID" value="' . $row["Product_ID"] . '">'.
-                            '<input type="hidden" name="userID" value="' . $_SESSION['userID'] . '">'.
-                            '<button type="submit">Add to Cart</button>'.
-
-                        '</div>'.
-                        '</div>'.
-                        '</form>';
+                        '</div>' .
+                    '</div>';
                 }
             } else {
                 echo "0 results";
             }
             $con->close();
 ?>
-                </div>
-            </section>
-
-            <section id="food-menu-search">
-                <h2 class="food-menu-heading">Search</h2>
-                <div class="food-menu-container container" id="searchResults">
-
                 </div>
             </section>
 
