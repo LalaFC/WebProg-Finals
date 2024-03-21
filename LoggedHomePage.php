@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -9,8 +10,6 @@
     <link rel="icon" href = "Images/Papsie-logo.png">
     <link rel="stylesheet"
           href="Dynamic.css" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
@@ -100,8 +99,8 @@
     <div class="header">
         <ul class="Register/Login">
             <li><a href="#" id="cart"><div class="icon-holder" ><img src="Images/cart.ico" loading="lazy" alt="" class="image"></div></a></li>
-            <li><a href="#loginPage" id="Login">
-                <div id="tomato"><h4>Login</h4></div>
+            <li><a href="logout.php" id="Logout">
+                <div id="tomato"><h4>Logout</h4></div>
                 </a>
 
                 <div id="loginPage" class="modal">
@@ -159,18 +158,15 @@
                     </div>
                 </div>
             </li>
-            <h4>/</h4>
+            <!-- <h4>/</h4> -->
 
 
-            <li><a href="#registerPage" id="register">
-                    <div id="tomato">
-                        <h4>Register</h4>
-                    </div>
+            <!-- <li><a href="#registerPage" id="register">
+                    <div id="tomato"><h4>Register</h4></div>
                 </a>
                 <div id="registerPage" class="modal">
                     <div class="content">
                     <h2>Register Form</h2>
-                    <a href="#" class="box-close"> × </a>
                     <script>
                         // Function to get URL parameter by name
                         function getUrlParameter(name) {
@@ -193,53 +189,28 @@
                         }
                     </script>
                     <form action="register.php" method="post">
-
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br><br>
-                        
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()-_+=])[A-Za-z\d!@#$%^&*()-_+=]{8,}$"><br>
-
-                        <small>  Password must be:<br> -atleast 8 characters<br>
-                        - a combination of upper & lower case<br>
-                        - has atleast 1 digit<be>
-                        - has atleast 1 special character</small><br><br>
-
-                        <label for="fname">First Name:</label>
-                        <input type="text" id="fname" name="fname"><br><br>
-
-                        <label for="lname">Last Name:</label>
-                        <input type="text" id="lname" name="lname"><br><br>
-
-                        <label for="fname">Phone Number:</label>
-                        <input type="text" id="phoneNum" name="phoneNum"><br><br>
-
-                        <label for="fname">Address:</label>
-                        <input type="text" id="address" name="address"><br><br>
-
+                        <input type="password" id="password" name="password" required minlength="6"><br>
+                        <small>Password must be at least 6 characters long.</small><br><br>
                         <button type="submit">Register</button>
                     </form>
 
                 </div>
-            </li>
+            </li> -->
 
 
     </div>
     <div class="col-10"
              id="main-content">
 
-            <div class="box">
-                <!-- <form name="search" onsubmit="navigateToHash(); return false;">
-                    <input type="text" class="input"  id="searchInput" onmouseout="this.value = ''; this.blur();" onkeyup="checkEnter(event)">
-                </form>
-                <i class="fas fa-search"></i> -->
-
-                <input type="text" id="searchInput" placeholder="Search...">
-                <button onclick="showHideSections()">Search</button>
-            </div>
-
             <section class="showcase-area" id="showcase">
                 <div class="showcase-container">
+                    <?php 
+                    Echo "<h1 class='main-title' id='home'>Hello ".$_SESSION['name']."!</h1>"
+                    ?>
+                
                     <h1 class="main-title" id="home">Feel at Home with Papsie Burger</h1>
                     <p style="padding-bottom: 20%;">Experience the taste of Home without piercing your pockets!</p>
                     
@@ -431,52 +402,6 @@
             }
             $con->close();
 ?>
-                </div>
-            </section>
-
-            <section id="food-menu-search">
-                <h2 class="food-menu-heading">Search</h2>
-                <div class="food-menu-container container">
-                    <?php
-            // database connection code
-                        $con = mysqli_connect('localhost', 'root', '', 'papsie_burger');
-                        
-                        if ($con->connect_error) {
-                            die("Connection failed: " . $con->connect_error);
-                        }
-                        
-                        // Process search query
-                        if (isset($_GET['query'])) {
-                            $search_query = $_GET['query'];
-                    
-                        // database insert SQL code
-                        $sql = "SELECT * FROM Product_List WHERE product_name LIKE '%$search_query%'
-                        OR product_type Like '%$search_query%'";
-                        $result = $con->query($sql);
-
-                            if ($result->num_rows > 0) {
-                                // output data of each row
-                                while ($row = $result->fetch_assoc()) {
-                                    echo
-                                    '<div class="food-menu-item">' .
-                                        '<div class="food-img">' .
-                                            '<img src="Images/' . $row["Image"] . '" alt="' . $row["Image"] . '" />' .
-                                        '</div>' .
-                                        '<div class="food-description">' .
-                                            '<h2 class="food-title">' . $row["Product_Name"] . '</h2>' .
-                                            '<p>' .
-                                                $row["Description"] .
-                                            '</p>' .
-                                            '<p class="food-price">Price: PHP ' . $row["Price"] . '</p>' .
-                                        '</div>' .
-                                    '</div>';
-                                }
-                            } else {
-                                echo "0 results";
-                            }
-                        }
-                        $con->close();
-                    ?>
                 </div>
             </section>
 
